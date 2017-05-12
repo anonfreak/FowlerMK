@@ -9,8 +9,8 @@ public class Customer {
     private String name;
     private Vector<Rental> rentals = new Vector<>();
 
-    public Customer(String newname) {
-        name = newname;
+    public Customer(String newName) {
+        name = newName;
     }
 
     public void addRental(Rental arg) {
