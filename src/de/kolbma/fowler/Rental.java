@@ -1,4 +1,6 @@
-class Rental {
+package de.kolbma.fowler;
+
+public class Rental {
     private Movie movie;
     private int daysRented;
 
