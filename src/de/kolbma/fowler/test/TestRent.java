@@ -17,7 +17,7 @@ public class TestRent{
     private Rental r1;
     private Rental r2;
     private Customer customer;
-    String test = "de.kolbma.fowler.Rental Record for joe\n" +
+    String test = "Rental Record for joe\n" +
             "\tTitle\t\tDays\tAmount\n" +
             "\tmovie1\t\t10\t30.0\n" +
             "\tmovie2\t\t5\t4.5\n" +
