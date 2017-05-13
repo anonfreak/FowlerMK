@@ -29,20 +29,26 @@ public class Customer {
         result.append("\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n");
         
         for(Rental rental : rentals){
-            double thisAmount = amountFor(rental);
             // add frequent renter points
             frequentRenterPoints++;
             // add bonus for a two day new release rental
             if ((rental.getMovie().getPriceCode() == Movie.NEW_RELEASE) && rental.getDaysRented() > 1)
                 frequentRenterPoints++;
             //show figures for this rental
-            result.append("\t").append(rental.getMovie().getTitle()).append("\t").append("\t").append(rental.getDaysRented()).append("\t").append(String.valueOf(thisAmount)).append("\n");
-            totalAmount += thisAmount;
+            result.append("\t").append(rental.getMovie().getTitle()).append("\t").append("\t").append(rental.getDaysRented()).append("\t").append(amountFor(rental)).append("\n");
         }
         //add footer lines
-        result.append("Amount owed is ").append(String.valueOf(totalAmount)).append("\n");
+        result.append("Amount owed is ").append(getTotalAmount(totalAmount)).append("\n");
         result.append("You earned ").append(String.valueOf(frequentRenterPoints)).append(" frequent renter points");
         return result.toString();
+    }
+
+    private double getTotalAmount(double totalAmount) {
+        double amount = 0;
+        for(Rental rental : rentals){
+            amount += amountFor(rental);
+        }
+        return amount;
     }
 
     private double amountFor(Rental each) {
